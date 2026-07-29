@@ -12,6 +12,8 @@ const withMDX = createMDX({
   options: {
     // Strip the YAML frontmatter from the rendered body. Metadata is still
     // read separately by gray-matter in src/lib/blog.ts.
+    // Use function plugins (not package-name strings) — Next 15.2's MDX
+    // loader rejects the string form during `next build`.
     remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
   },
 });
