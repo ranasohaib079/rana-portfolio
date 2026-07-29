@@ -5,6 +5,8 @@ import { Header, ChatbotProvider } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Chatbot } from "@/components/chatbot";
+import { profile } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -13,10 +15,45 @@ const calistoga = Calistoga({
   variable: "--font-serif",
 });
 
+const description =
+  "Full Stack & AI/ML Software Engineer. Master's student in AI at UIUC. Portfolio of full-stack, computer vision, and ML work.";
+
 export const metadata: Metadata = {
-  title: "Rana Sohaib Hani",
-  description:
-    "Full Stack & AI/ML Software Engineer. Master's student in AI at UIUC. Portfolio of full-stack, computer vision, and ML work.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: profile.name,
+    template: `%s | ${profile.name}`,
+  },
+  description,
+  keywords: [
+    "Rana Sohaib Hani",
+    "software engineer",
+    "full stack developer",
+    "computer vision",
+    "machine learning",
+    "AI engineer",
+    "UIUC",
+  ],
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: profile.name,
+    title: profile.name,
+    description,
+    url: siteUrl,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: profile.name,
+    description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

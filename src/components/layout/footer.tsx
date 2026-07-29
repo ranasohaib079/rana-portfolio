@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { profile } from "@/lib/content";
 
 export function Footer() {
   return (
     <footer className="flex flex-col items-center justify-center pb-32 sm:flex-row-reverse sm:justify-between">
       <section className="flex gap-6">
         <a
-          href="https://linkedin.com/in/rshani/"
+          href={profile.links.linkedin}
           target="_blank"
           className="text-muted-foreground hover:text-foreground"
           rel="noopener noreferrer"
@@ -16,7 +17,7 @@ export function Footer() {
           <Linkedin className="h-5 w-5" />
         </a>
         <a
-          href="https://github.com/ranasohaib079"
+          href={profile.links.github}
           target="_blank"
           className="text-muted-foreground hover:text-foreground"
           rel="noopener noreferrer"
@@ -26,10 +27,8 @@ export function Footer() {
           <Github className="h-5 w-5" />
         </a>
         <a
-          href="mailto:sohaibrana079@gmail.com"
-          target="_blank"
+          href={`mailto:${profile.email}`}
           className="text-muted-foreground hover:text-foreground"
-          rel="noopener noreferrer"
           title="Email"
         >
           <span className="sr-only">Email</span>
@@ -40,7 +39,7 @@ export function Footer() {
         <p className="text-center text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()}</span>{" "}
           <Link href="/" className="link">
-            ranasohaib.dev
+            {profile.name}
           </Link>{" "}
           |{" "}
           <Link href="/privacy" className="link font-bold">
