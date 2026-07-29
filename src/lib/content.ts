@@ -12,7 +12,7 @@ export const profile = {
   headline: "Full Stack & Computer Vision/AI Engineer",
   tagline: "Master's student in AI at UIUC. Mostly full-stack, increasingly ML.",
   email: "sohaibrana079@gmail.com",
-  photo: "/img/me-1.jpg",
+  photo: "/img/me-1.png",
   resume: "/resume.pdf",
   githubUser: "ranasohaib079",
   links: {
