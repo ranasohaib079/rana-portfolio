@@ -8,7 +8,7 @@ import { useChatbot } from "@/components/layout/header";
 export function Chatbot() {
   const { isChatOpen, setIsChatOpen } = useChatbot();
   const [messages, setMessages] = useState<{ id: string; role: "user" | "assistant"; content: string }[]>([
-    { id: "welcome", role: "assistant", content: "Hi there! I'm Ted's AI assistant. How can I help you?" },
+    { id: "welcome", role: "assistant", content: "Hi there! I'm Sohaib's AI assistant. How can I help you?" },
   ]);
   const [input, setInput] = useState("");
 
@@ -28,7 +28,7 @@ export function Chatbot() {
         {
           id: aiMsgId,
           role: "assistant",
-          content: "This is a demo chatbot. In the real implementation, this would connect to an API to get responses about Ted."
+          content: "This is a demo chatbot. In the real implementation, this would connect to an API to get responses about Sohaib."
         }
       ]);
     }, 1000);
@@ -49,7 +49,7 @@ export function Chatbot() {
             <p className="text-xs">Chat with</p>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-500" />
-              <p className="text-sm font-medium">Ted Support</p>
+              <p className="text-sm font-medium">Sohaib Support</p>
             </div>
           </div>
         </section>

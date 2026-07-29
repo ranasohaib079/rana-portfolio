@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useChatbot } from "@/components/layout/header";
 
 export default function Home() {
@@ -16,19 +17,11 @@ export default function Home() {
     <article className="mt-8 flex flex-col gap-8 pb-16">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
         <div className="flex flex-col gap-2">
-          <h1 className="title">Hi Sohaib here </h1>
-          <p className="text-lg">Software Engineer New Grad from DePaul University </p>
+          <h1 className="title text-balance text-4xl sm:text-5xl">hi, sohaib here.</h1>
+          <p className="text-lg">Full Stack & Computer Vision/AI Engineer · Lincolnwood, IL</p>
           <p className="text-lg">
-            I like to develop full-stack apps, watch instant coffee and get coding advice
-            from my cat, {" "}
-            <a
-              href="https://www.instagram.com/gomugomu.cat"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link font-medium underline underline-offset-4"
-            >
-              Luffy.
-            </a>
+            Master&apos;s student in AI at UIUC. Full-stack by trade, ML/CV by passion.
+            I build things end-to-end — from SwiftUI apps to Gemini-powered vision pipelines.
           </p>
           <div className="mt-4">
             <button
@@ -42,7 +35,7 @@ export default function Home() {
           <div className="mt-6 flex gap-2">
             <Link
               href="/resume.pdf"
-              className="flex items-center gap-2 rounded-lg border bg-background px-4 py-2 font-medium"
+              className="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               Resume
               <svg
@@ -135,134 +128,306 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Drop your photos into /public/img/me-1.jpg (me-2.jpg, me-3.jpg reserved) */}
         <div className="relative mt-4 aspect-square h-48 w-48 shrink-0 overflow-hidden rounded-lg md:mt-0">
           <Image
-            src="https://ext.same-assets.com/3903566631/849522504.jpeg"
-            alt="Ted's profile photo"
+            src="/img/me-1.jpg"
+            alt="Rana Sohaib Hani"
             fill
             className="object-cover"
+            priority
           />
         </div>
       </div>
 
-      {/* Work Experience */}
+      {/* Work / Education */}
+      <Tabs defaultValue="work" className="mt-8">
+        <TabsList className="mb-2 grid w-full grid-cols-2">
+          <TabsTrigger value="work">Work</TabsTrigger>
+          <TabsTrigger value="education">Education</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="work">
+          <div className="mt-4 flex flex-col gap-8">
+            {/* GoCe */}
+            <div className="flex gap-4">
+              <div className="relative mt-1 h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white">
+                <Image
+                  src="/img/logos/goce.jpg"
+                  alt="GoCe Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Nov 2025 – Jun 2026 · Chicago, IL</p>
+                    <h3 className="font-medium">GoCe</h3>
+                    <p className="text-sm text-muted-foreground">Full Stack & Computer Vision Engineer</p>
+                  </div>
+                </div>
+                <ul className="list-inside list-disc text-sm">
+                  <li>
+                    Built a panoramic image stitching pipeline using Hugin that transformed sequential mobile captures into high-resolution 360° environments, processing 200+ daily client requests and enabling remote property navigation through an interactive viewer
+                  </li>
+                  <li>
+                    Integrated Gemini-powered vision models into the panorama pipeline to detect, localize, and measure objects within 360° environments, exposing inference results through REST APIs for downstream spatial search and visual inspection
+                  </li>
+                  <li>
+                    Built Python microservices that processed and indexed panoramic datasets into structured spatial metadata, reducing processing time by 60% and enabling fast object retrieval across scanned environments
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Zabihah */}
+            <div className="flex gap-4">
+              <div className="relative mt-1 h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white">
+                <Image
+                  src="/img/logos/zabihah.jpg"
+                  alt="Zabihah Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">May 2025 – Aug 2025 · Remote</p>
+                    <h3 className="font-medium">Zabihah</h3>
+                    <p className="text-sm text-muted-foreground">Full Stack & Data Engineer</p>
+                  </div>
+                </div>
+                <ul className="list-inside list-disc text-sm">
+                  <li>
+                    Delivered personalized restaurant recommendations to 250K+ users at sub-200ms response times using a location-based discovery system built on embedding-based geospatial queries, Core Location, and a REST API backend
+                  </li>
+                  <li>
+                    Built automated Python scripts that aggregated daily transaction data into structured business reports (revenue, order volume, sales trends), reducing manual reporting by 85%
+                  </li>
+                  <li>
+                    Increased daily active users by 40% by building a SwiftUI content feed with reviews, ratings, and comments, using optimized state management and lazy data fetching
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Resonate */}
+            <div className="flex gap-4">
+              <div className="relative mt-1 h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white">
+                <Image
+                  src="/img/logos/resonate.jpg"
+                  alt="Resonate Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Sep 2024 – Feb 2025 · Remote</p>
+                    <h3 className="font-medium">Resonate</h3>
+                    <p className="text-sm text-muted-foreground">Full Stack Software Engineer</p>
+                  </div>
+                </div>
+                <ul className="list-inside list-disc text-sm">
+                  <li>
+                    Increased user retention by 50% across an initial 1,000-user cohort by launching a TypeScript-based learning platform with a generative AI recommendation layer (embedding similarity over the Google Books corpus via OpenAI APIs)
+                  </li>
+                  <li>
+                    Cut recommender system latency by 40% by decomposing a monolithic engine into Go microservices with RESTful APIs, enabling independent model deployment and CI/CD via GitHub Actions
+                  </li>
+                  <li>
+                    Improved recommendation relevance by 20% and cut PR turnaround in half through intelligent feature engineering and unit-tested AI-assisted filtering logic
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Cars Commerce */}
+            <div className="flex gap-4">
+              <div className="relative mt-1 h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white">
+                <Image
+                  src="/img/logos/cars-commerce.jpg"
+                  alt="Cars Commerce Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Jun 2024 – Aug 2024 · Chicago, IL</p>
+                    <h3 className="font-medium">Cars Commerce</h3>
+                    <p className="text-sm text-muted-foreground">iOS Software Engineer Intern</p>
+                  </div>
+                </div>
+                <ul className="list-inside list-disc text-sm">
+                  <li>
+                    Cut CI/CD build times by 90% for a team shipping to 25M+ monthly users by creating a reusable SwiftUI component library
+                  </li>
+                  <li>
+                    Shipped 15+ production-ready SwiftUI components across the Cars.com app; built an internal component sandbox for real-time UI preview, reducing rework cycles
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Engageathon */}
+            <div className="flex gap-4">
+              <div className="relative mt-1 h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white">
+                <Image
+                  src="/img/logos/engageathon.jpg"
+                  alt="Engageathon Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Nov 2023 – Apr 2024 · Remote</p>
+                    <h3 className="font-medium">Engageathon</h3>
+                    <p className="text-sm text-muted-foreground">Backend Software Engineer Intern</p>
+                  </div>
+                </div>
+                <ul className="list-inside list-disc text-sm">
+                  <li>
+                    Achieved zero downtime across 3 NFL Alumni Super Bowl live events engaging 3,000+ attendees via a scalable real-time posting board with redundant backend services
+                  </li>
+                  <li>
+                    Improved API performance by 30% for 2,000 concurrent users by adding a Node.js caching layer
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="education">
+          <div className="mt-4 flex flex-col gap-8">
+            {/* UIUC */}
+            <div className="flex gap-4">
+              <div className="relative mt-1 h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white">
+                <Image
+                  src="/img/logos/uiuc.jpg"
+                  alt="UIUC Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">Aug 2026 - Dec 2027</p>
+                  <h3 className="font-medium">University of Illinois Urbana-Champaign</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Master of Computer Science (Artificial Intelligence)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* DePaul */}
+            <div className="flex gap-4">
+              <div className="relative mt-1 h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white">
+                <Image
+                  src="/img/logos/depaul.jpg"
+                  alt="DePaul Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">Sep 2020 - Dec 2024</p>
+                  <h3 className="font-medium">DePaul University</h3>
+                  <p className="text-sm text-muted-foreground">Bachelor of Science in Computer Science</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+
+      {/* Skills */}
       <div className="mt-8">
-        <div className="flex border-b">
-          <div className="flex-1 border-b border-primary/50 text-center py-3 text-lg font-medium">
-            Work
-          </div>
-          <div className="flex-1 text-center py-3 text-lg text-muted-foreground">
-            Education
-          </div>
-        </div>
-
-        <div className="mt-4 flex flex-col gap-8">
-          {/* Resonate */}
-          <div className="flex gap-4">
-            <div className="relative mt-1 h-10 w-10 rounded-full bg-neutral-100 p-1 dark:bg-neutral-800">
-              <Image
-                src="https://ext.same-assets.com/3903566631/700231450.png"
-                alt="DBS Logo"
-                fill
-                className="object-contain p-1"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Sep 2024 - Feb 2025</p>
-                  <h3 className="font-medium">Resonate</h3>
-                  <p className="text-sm text-muted-foreground">Full Stack Engineer (Part-time)</p>
-                </div>
-              </div>
-              <ul className="list-inside list-disc text-sm">
-                <li>Created an app that recommends books and encourages discussions amongst readers using Google Books and OpenAI</li>
-                <li>Developed RESTful APIs and microservices in Go to optimize the user chat matching system, improving matching efficiency</li>
-              </ul>
+        <h2 className="title text-2xl sm:text-3xl">skills</h2>
+        <div className="mt-4 flex flex-col gap-4">
+          <div>
+            <p className="mb-2 text-sm font-medium text-muted-foreground">Languages</p>
+            <div className="flex flex-wrap gap-2">
+              {["Python", "Java", "TypeScript", "JavaScript", "Go", "Swift", "C", "C++"].map(
+                (skill) => (
+                  <span key={skill} className="rounded-sm bg-muted px-2 py-1 text-xs">
+                    {skill}
+                  </span>
+                )
+              )}
             </div>
           </div>
-
-          {/* Cars Commerce */}
-          <div className="flex gap-4">
-            <div className="relative mt-1 h-10 w-10 rounded-full bg-neutral-100 p-1 dark:bg-neutral-800">
-              <Image
-                src="https://ext.same-assets.com/3903566631/1232334329.png"
-                alt="SIT Logo"
-                fill
-                className="object-contain p-1"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Jun 2024 - Aug 2024</p>
-                  <h3 className="font-medium">Cars Commerce</h3>
-                  <p className="text-sm text-muted-foreground">iOS Software Engineer (Intern)</p>
-                </div>
-              </div>
-              <ul className="list-inside list-disc text-sm">
-                <li>Developed and integrated 15 SwiftUI components that bolstered UI consistency and engagement for a user base exceeding 25 million monthly users</li>
-                <li>Architected a centralized blueprint system and deployed a real-time prototyping tool to mimic car listings</li>
-              </ul>
-              {/* <div className="mt-2">
-                <Link
-                  href="https://nftvue.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                >
-                  NFTVue
-                </Link>
-              </div> */}
+          <div>
+            <p className="mb-2 text-sm font-medium text-muted-foreground">Frameworks & Tools</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "React.js",
+                "React Native",
+                "SwiftUI",
+                "UIKit",
+                "Node.js",
+                "FastAPI",
+                "Flask",
+                ".NET",
+                "Docker",
+                "Git",
+              ].map((skill) => (
+                <span key={skill} className="rounded-sm bg-muted px-2 py-1 text-xs">
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
-
-          {/* Engageathon */}
-          <div className="flex gap-4">
-            <div className="relative mt-1 h-10 w-10 rounded-full bg-neutral-100 p-1 dark:bg-neutral-800">
-              <Image
-                src="https://ext.same-assets.com/3903566631/700231450.png"
-                alt="DBS Logo"
-                fill
-                className="object-contain p-1"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Nov 2023 - Apr 2024</p>
-                  <h3 className="font-medium">ENGAGEathon</h3>
-                  <p className="text-sm text-muted-foreground">Software Engineer (Intern)</p>
-                </div>
-              </div>
-              <ul className="list-inside list-disc text-sm">
-                <li>Launched a live-interaction posting board supporting 3 Super Bowl events in partnership with the NFL Alumni Association</li>
-                <li>Developed a real-time messaging system in React Native that facilitated communication for over 50 corporations and social groups during community events</li>
-              </ul>
+          <div>
+            <p className="mb-2 text-sm font-medium text-muted-foreground">ML & AI</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Computer Vision",
+                "LLMs",
+                "Generative AI",
+                "PyTorch",
+                "Hugging Face Transformers",
+                "Model Inference",
+              ].map((skill) => (
+                <span key={skill} className="rounded-sm bg-muted px-2 py-1 text-xs">
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
-
-          {/* Freelancing */}
-          <div className="flex gap-4">
-            <div className="relative mt-1 h-10 w-10 rounded-full bg-neutral-100 p-1 dark:bg-neutral-800">
-              <Image
-                src="https://ext.same-assets.com/3903566631/1624427419.png"
-                alt="Activate Logo"
-                fill
-                className="object-contain p-1"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Dec 2023 - Present</p>
-                  <h3 className="font-medium">Freelancer</h3>
-                  <p className="text-sm text-muted-foreground">Web Developer</p>
-                </div>
-              </div>
-              <ul className="list-inside list-disc text-sm">
-                <li>Crafted responsive, custom websites for mosques, learning centers, and other diverse clients using modern web technologies</li>
-              </ul>
+          <div>
+            <p className="mb-2 text-sm font-medium text-muted-foreground">Databases & Cloud</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "AWS",
+                "SQL",
+                "PostgreSQL",
+                "MariaDB",
+                "MySQL",
+                "Supabase",
+                "Firebase",
+                "GCP",
+              ].map((skill) => (
+                <span key={skill} className="rounded-sm bg-muted px-2 py-1 text-xs">
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -271,7 +436,7 @@ export default function Home() {
       {/* Featured Projects */}
       <div className="mt-8">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">featured projects</h2>
+          <h2 className="title text-2xl sm:text-3xl">featured projects</h2>
           <Link href="/projects" className="flex items-center gap-1 text-sm">
             view more
             <ArrowRight className="h-4 w-4" />
@@ -279,34 +444,61 @@ export default function Home() {
         </div>
 
         <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {/* TradingView Project */}
+          {/* DePaul Cybersecurity Clinic */}
           <div className="rounded-xl border bg-card text-card-foreground shadow">
             <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
               <Image
-                src="https://ext.same-assets.com/3903566631/849522504.png"
-                alt="Tradingview Telegram Alerts"
+                src="/img/projects/cybersecurity-clinic.jpg"
+                alt="DePaul University Cybersecurity Clinic"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold">Tradingview Telegram Alerts</h3>
+              <h3 className="text-lg font-semibold">DePaul University Cybersecurity Clinic</h3>
               <p className="text-sm text-muted-foreground">
-                Real-time trading alerts with chart snapshots sent to Telegram, designed to keep traders informed and responsive to market changes
+                Team Lead & Developer (March 2024) — Secured a $100K grant by leading a 6-member team
+                to ship a full-stack web application enabling DePaul&apos;s Cybersecurity Clinic to
+                deliver real-world client services, built with role-based authentication and a
+                normalized relational schema
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Docker</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">FastAPI</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Fly.io</span>
+                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Full Stack</span>
+                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Security</span>
+                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Team Lead</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Search Engine */}
+          <div className="rounded-xl border bg-card text-card-foreground shadow">
+            <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
+              <Image
+                src="/img/projects/search-engine.jpg"
+                alt="Search Engine"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold">Search Engine</h3>
+              <p className="text-sm text-muted-foreground">
+                An information retrieval engine built in Python, implementing the full pipeline from
+                tokenization and document processing through inverted indexing, query matching, and
+                result ranking, with unit test coverage across each stage
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Information Retrieval</span>
+                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Inverted Index</span>
                 <span className="rounded-sm bg-muted px-2 py-1 text-xs">Python</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Selenium</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Telegram Bot API</span>
+                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Ranking</span>
               </div>
 
               <div className="mt-4">
                 <a
-                  href="https://github.com/tedawf/tradingview-telegram-alerts"
+                  href="https://github.com/ranasohaib079/Search-Engine"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
@@ -331,68 +523,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* NFTVue Project */}
-          <div className="rounded-xl border bg-card text-card-foreground shadow">
-            <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
-              <Image
-                src="https://ext.same-assets.com/137667400/849522504.bmp"
-                alt="NFTVue"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg font-semibold">NFTVue</h3>
-              <p className="text-sm text-muted-foreground">
-                Non-Fungible Tokens (NFTs) Gallery Viewer website that allows users to connect their crypto wallets to view and verify their tokens
-              </p>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">HashKey DID</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">MetaMask</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">NFTScan</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">NextJS</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">TailwindCSS</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">WalletConnect</span>
-                <span className="rounded-sm bg-muted px-2 py-1 text-xs">Web3</span>
-              </div>
-
-              <div className="mt-4">
-                <a
-                  href="https://nftvue.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="mr-2"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" x2="22" y1="12" y2="12" />
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  </svg>
-                  Website
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Recent Posts */}
       <div className="mt-8">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">recent posts</h2>
+          <h2 className="title text-2xl sm:text-3xl">recent posts</h2>
           <Link href="/blog" className="flex items-center gap-1 text-sm">
             view more
             <ArrowRight className="h-4 w-4" />
@@ -402,34 +539,18 @@ export default function Home() {
         <div className="mt-4 rounded-xl border bg-card text-card-foreground shadow">
           <ul className="flex flex-col">
             <li>
-              <Link href="/blog/my-portfolio-is-live">
-                <div className="flex flex-col justify-between p-6 sm:flex-row sm:items-center">
-                  <div className="max-w-md md:max-w-lg">
-                    <h3 className="text-lg font-semibold">My Portfolio is Live: Here&apos;s What I Learned</h3>
-                    <p className="mt-1 line-clamp-2 text-sm font-light text-muted-foreground">
-                      From a sleek, minimal design to an integrated AI chatbot. It even got a live review from one of my favorite creators!
-                    </p>
-                  </div>
-                  <p className="mt-2 flex w-full justify-end text-sm font-light sm:mt-0 sm:w-auto">
-                    September 27, 2024
+              <div className="flex flex-col justify-between p-6 sm:flex-row sm:items-center">
+                <div className="max-w-md md:max-w-lg">
+                  <h3 className="text-lg font-semibold">Coming soon</h3>
+                  <p className="mt-1 line-clamp-2 text-sm font-light text-muted-foreground">
+                    Blog posts are on the way. Check back later for write-ups on full-stack, CV, and
+                    AI projects.
                   </p>
                 </div>
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/making-tvta">
-                <div className="flex flex-col justify-between p-6 sm:flex-row sm:items-center">
-                  <div className="max-w-md md:max-w-lg">
-                    <h3 className="text-lg font-semibold">Making TradingView Telegram Alerts</h3>
-                    <p className="mt-1 line-clamp-2 text-sm font-light text-muted-foreground">
-                      Real-time trading alerts with chart snapshots sent to Telegram, designed for real traders.
-                    </p>
-                  </div>
-                  <p className="mt-2 flex w-full justify-end text-sm font-light sm:mt-0 sm:w-auto">
-                    September 11, 2024
-                  </p>
-                </div>
-              </Link>
+                <p className="mt-2 flex w-full justify-end text-sm font-light sm:mt-0 sm:w-auto">
+                  —
+                </p>
+              </div>
             </li>
           </ul>
         </div>

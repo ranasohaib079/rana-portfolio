@@ -1,7 +1,7 @@
 export default function Privacy() {
   return (
     <article className="mt-8 flex flex-col gap-8 pb-16">
-      <h1 className="title">privacy policy.</h1>
+      <h1 className="title text-balance text-4xl sm:text-5xl">privacy policy.</h1>
 
       <div className="prose prose-sm max-w-none dark:prose-invert">
         <p>
@@ -25,11 +25,15 @@ export default function Privacy() {
 
         <h2 className="text-xl font-semibold mt-8">Contact</h2>
         <p>
-          If you have any questions about this privacy policy, please email me at <a href="mailto:hello@tedawf.com" className="underline">hello@tedawf.com</a>.
+          If you have any questions about this privacy policy, please email me at{" "}
+          <a href="mailto:sohaibrana079@gmail.com" className="underline">
+            sohaibrana079@gmail.com
+          </a>
+          .
         </p>
 
         <p className="text-sm text-muted-foreground mt-8">
-          Last updated: April 9, 2025
+          Last updated: July 28, 2026
         </p>
       </div>
     </article>

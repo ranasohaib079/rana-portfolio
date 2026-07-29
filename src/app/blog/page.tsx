@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { Search, X } from "lucide-react";
 
 export default function Blog() {
   return (
     <article className="mt-8 flex flex-col gap-8 pb-16">
-      <h1 className="title">my blog.</h1>
+      <h1 className="title text-balance text-4xl sm:text-5xl">my blog.</h1>
 
       <div className="flex flex-col gap-12">
         <div className="flex items-center gap-3">
@@ -28,49 +27,18 @@ export default function Blog() {
         <div className="rounded-xl border bg-card text-card-foreground shadow">
           <ul className="flex flex-col">
             <li>
-              <Link href="/blog/my-portfolio-is-live">
-                <div className="flex flex-col justify-between p-6 sm:flex-row sm:items-center">
-                  <div className="max-w-md md:max-w-lg">
-                    <h3 className="text-lg font-semibold">My Portfolio is Live: Here&apos;s What I Learned</h3>
-                    <p className="mt-1 line-clamp-2 text-sm font-light text-muted-foreground">
-                      From a sleek, minimal design to an integrated AI chatbot. It even got a live review from one of my favorite creators!
-                    </p>
-                  </div>
-                  <p className="mt-2 flex w-full justify-end text-sm font-light sm:mt-0 sm:w-auto">
-                    September 27, 2024
+              <div className="flex flex-col justify-between p-6 sm:flex-row sm:items-center">
+                <div className="max-w-md md:max-w-lg">
+                  <h3 className="text-lg font-semibold">Coming soon</h3>
+                  <p className="mt-1 line-clamp-2 text-sm font-light text-muted-foreground">
+                    No posts yet — this card is a placeholder so it&apos;s easy to add real write-ups
+                    later without changing the layout.
                   </p>
                 </div>
-              </Link>
-            </li>
-            <li className="border-t">
-              <Link href="/blog/making-tvta">
-                <div className="flex flex-col justify-between p-6 sm:flex-row sm:items-center">
-                  <div className="max-w-md md:max-w-lg">
-                    <h3 className="text-lg font-semibold">Making TradingView Telegram Alerts</h3>
-                    <p className="mt-1 line-clamp-2 text-sm font-light text-muted-foreground">
-                      Real-time trading alerts with chart snapshots sent to Telegram, designed for real traders.
-                    </p>
-                  </div>
-                  <p className="mt-2 flex w-full justify-end text-sm font-light sm:mt-0 sm:w-auto">
-                    September 11, 2024
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li className="border-t">
-              <Link href="/blog/hello-world">
-                <div className="flex flex-col justify-between p-6 sm:flex-row sm:items-center">
-                  <div className="max-w-md md:max-w-lg">
-                    <h3 className="text-lg font-semibold">Hello World!</h3>
-                    <p className="mt-1 line-clamp-2 text-sm font-light text-muted-foreground">
-                      This is my first post on my blog to test out how things look in markdown.
-                    </p>
-                  </div>
-                  <p className="mt-2 flex w-full justify-end text-sm font-light sm:mt-0 sm:w-auto">
-                    September 7, 2024
-                  </p>
-                </div>
-              </Link>
+                <p className="mt-2 flex w-full justify-end text-sm font-light sm:mt-0 sm:w-auto">
+                  —
+                </p>
+              </div>
             </li>
           </ul>
         </div>

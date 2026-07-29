@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="flex flex-col items-center justify-center pb-32 sm:flex-row-reverse sm:justify-between">
       <section className="flex gap-6">
         <a
-          href="https://linkedin.com/in/tedawf"
+          href="https://linkedin.com/in/rshani/"
           target="_blank"
           className="text-muted-foreground hover:text-foreground"
           rel="noopener noreferrer"
@@ -16,7 +16,7 @@ export function Footer() {
           <Linkedin className="h-5 w-5" />
         </a>
         <a
-          href="https://github.com/tedawf"
+          href="https://github.com/ranasohaib079"
           target="_blank"
           className="text-muted-foreground hover:text-foreground"
           rel="noopener noreferrer"
@@ -26,7 +26,7 @@ export function Footer() {
           <Github className="h-5 w-5" />
         </a>
         <a
-          href="mailto:hello@tedawf.com"
+          href="mailto:sohaibrana079@gmail.com"
           target="_blank"
           className="text-muted-foreground hover:text-foreground"
           rel="noopener noreferrer"
@@ -40,7 +40,7 @@ export function Footer() {
         <p className="text-center text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()}</span>{" "}
           <Link href="/" className="link">
-            tedawf.com
+            ranasohaib.dev
           </Link>{" "}
           |{" "}
           <Link href="/privacy" className="link font-bold">
