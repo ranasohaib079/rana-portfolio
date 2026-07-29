@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useState, createContext, useContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 
 type ChatbotContextType = {
   isChatOpen: boolean;
@@ -34,8 +34,13 @@ export function useChatbot() {
 
 export function Header() {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const { setIsChatOpen } = useChatbot();
+
+  // The resolved theme is only known in the browser, so defer icon rendering
+  // until after mount to keep the server and client markup identical.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const navItems = [
     { name: "home", path: "/" },
@@ -75,10 +80,16 @@ export function Header() {
             size="icon"
             aria-label="Theme Toggle"
             className="h-9 w-9"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
           >
             <span className="sr-only">Theme Toggle</span>
-            {theme === "dark" ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
+            {!mounted ? (
+              <span className="h-[1.2rem] w-[1.2rem]" />
+            ) : resolvedTheme === "dark" ? (
+              <Sun className="h-[1.2rem] w-[1.2rem]" />
+            ) : (
+              <Moon className="h-[1.2rem] w-[1.2rem]" />
+            )}
           </Button>
         </div>
       </nav>
