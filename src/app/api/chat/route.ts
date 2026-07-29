@@ -77,7 +77,8 @@ export async function POST(request: Request) {
 
   try {
     const result = streamText({
-      model: google(process.env.CHAT_MODEL || "gemini-2.5-flash"),
+      // gemini-2.5-flash is closed to new API keys; 3.6 Flash is the current default.
+      model: google(process.env.CHAT_MODEL || "gemini-3.6-flash"),
       system: systemPrompt,
       messages: await convertToModelMessages(trimmed),
       tools: chatTools,
