@@ -78,7 +78,7 @@ settings, and deploy. The default `*.vercel.app` subdomain works without a custo
 ## Scripts
 
 ```bash
-npm run dev      # dev server with Turbopack
+npm run dev      # local development server
 npm run build    # production build, type check, and lint
 npm run lint     # biome lint plus tsc --noEmit
 npm run format   # biome format
