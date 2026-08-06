@@ -10,7 +10,7 @@ export const profile = {
   shortName: "Sohaib",
   greeting: "hi, sohaib here.",
   headline: "Full Stack & Computer Vision/AI Engineer",
-  tagline: "Master's student in AI at UIUC. Mostly full-stack, increasingly ML.",
+  tagline: "Master's student in AI at UIUC. Full-stack engineer working across products, vision, and ML.",
   email: "sohaibrana079@gmail.com",
   photo: "/img/me-1.png",
   resume: "/resume.pdf",
